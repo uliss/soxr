@@ -38,14 +38,14 @@ elseif (WITH_CR32S)
   endif ()
 endif ()
 
-set (SOURCES ${PROJECT_NAME}.c data-io)
+set (SOURCES ${PROJECT_NAME}.c data-io.c)
 
 if (WITH_CR32 OR WITH_CR32S OR WITH_CR64 OR WITH_CR64S)
   list (APPEND SOURCES dbesi0.c filter.c fft4g64.c cr.c)
 endif ()
 
 if (WITH_CR32)
-  list (APPEND SOURCES cr32.c ${RDFT32})
+  list (APPEND SOURCES cr32.c ${RDFT32}.c)
 endif ()
 
 if (WITH_CR64)
