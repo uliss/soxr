@@ -40,9 +40,9 @@ if (NOT CMAKE_BUILD_TYPE)
     "Build type, one of: None Debug Release RelWithDebInfo MinSizeRel." FORCE)
 endif ()
 
-option (BUILD_TESTS "Build sanity-tests." ON)
+option (BUILD_TESTS "Build sanity-tests." OFF)
 option (BUILD_EXAMPLES "Build examples." OFF)
-option (WITH_OPENMP "Include OpenMP threading." ON)
+option (WITH_OPENMP "Include OpenMP threading." OFF)
 option (WITH_LSR_BINDINGS "Include a `libsamplerate'-like interface." ON)
 
 cmake_dependent_option (BUILD_SHARED_LIBS
@@ -75,7 +75,7 @@ cmake_dependent_option (BUILD_LSR_TESTS "Build LSR tests." OFF
 option (WITH_HI_PREC_CLOCK "Enable high-precision time-base." ON)
 option (WITH_FLOAT_STD_PREC_CLOCK
   "Use floating-point for standard-precision time-base." OFF)
-option (WITH_DEV_TRACE "Enable developer trace capability." ON)
+option (WITH_DEV_TRACE "Enable developer trace capability." OFF)
 option (WITH_DEV_GPROF "Enable developer grpof output." OFF)
 mark_as_advanced (WITH_HI_PREC_CLOCK WITH_FLOAT_STD_PREC_CLOCK
   WITH_DEV_TRACE WITH_DEV_GPROF)
