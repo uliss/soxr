@@ -41,24 +41,24 @@ endif ()
 set (SOURCES ${PROJECT_NAME}.c data-io)
 
 if (WITH_CR32 OR WITH_CR32S OR WITH_CR64 OR WITH_CR64S)
-  list (APPEND SOURCES dbesi0 filter fft4g64 cr)
+  list (APPEND SOURCES dbesi0.c filter.c fft4g64.c cr.c)
 endif ()
 
 if (WITH_CR32)
-  list (APPEND SOURCES cr32 ${RDFT32})
+  list (APPEND SOURCES cr32.c ${RDFT32})
 endif ()
 
 if (WITH_CR64)
-  list (APPEND SOURCES cr64)
+  list (APPEND SOURCES cr64.c)
 endif ()
 
 if (WITH_VR32)
-  list (APPEND SOURCES vr32)
+  list (APPEND SOURCES vr32.c)
 endif ()
 
 if (WITH_CR32S)
   foreach (source cr32s ${RDFT32S} util32s)
-    list (APPEND SOURCES ${source})
+    list (APPEND SOURCES ${source}.c)
     set_property (SOURCE ${source}
         APPEND_STRING PROPERTY COMPILE_FLAGS ${SIMD32_C_FLAGS})
   endforeach ()
@@ -66,7 +66,7 @@ endif ()
 
 if (WITH_CR64S)
   foreach (source cr64s pffft64s util64s)
-    list (APPEND SOURCES ${source})
+    list (APPEND SOURCES ${source}.c)
     set_property (SOURCE ${source}
         APPEND_STRING PROPERTY COMPILE_FLAGS ${SIMD64_C_FLAGS})
   endforeach ()
